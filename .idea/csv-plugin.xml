@@ -10,6 +10,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/functional_tests/tests.py">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/lists/models.py">
           <value>
             <Attribute>
