@@ -38,6 +38,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/lists/templates/lists/list.html">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/lists/tests.py">
           <value>
             <Attribute>
