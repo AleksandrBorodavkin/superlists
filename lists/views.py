@@ -18,4 +18,5 @@ def new_list(request):
     """
     New list
     """
+    Item.objects.create(text=request.POST['item_text'])
     return redirect('/lists/the-only-list-in-the-world/')
