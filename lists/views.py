@@ -18,4 +18,4 @@ def new_list(request):
     """
     New list
     """
-    pass
+    return redirect('/lists/the-only-list-in-the-world/')
