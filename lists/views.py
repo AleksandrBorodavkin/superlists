@@ -12,3 +12,10 @@ def home_page(request):
 def view_list(request):
     items = Item.objects.all()
     return render(request, 'lists/list.html', {'items': items})
+
+
+def new_list(request):
+    """
+    New list
+    """
+    pass
