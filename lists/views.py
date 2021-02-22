@@ -6,7 +6,7 @@ def home_page(request):
     return render(request, 'lists/home.html')
 
 
-def view_list(request):
+def view_list(request, list_id):
     items = Item.objects.all()
     return render(request, 'lists/list.html', {'items': items})
 
