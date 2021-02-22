@@ -5,9 +5,10 @@ name = "pypi"
 
 [packages]
 django = "*"
-selenium = "*"
 
 [dev-packages]
+ipython = "*"
+selenium = "*"
 
 [requires]
 python_version = "3.8"
