@@ -32,7 +32,6 @@ class ListViewTest(TestCase):
         self.assertTemplateUsed(response, 'lists/list.html')
 
     def test_displays_only_items_for_that_list(self):
-
         correct_list = List.objects.create()
         Item.objects.create(text='itemey 1', list=correct_list)
         Item.objects.create(text='itemey 2', list=correct_list)
@@ -74,3 +73,38 @@ class ListAndItemModelTest(TestCase):
         self.assertEqual(first_saved_item.list, list_)
         self.assertEqual(second_saved_item.text, 'Item the second')
         self.assertEqual(first_saved_item.list, list_)
+
+
+class NewItemTest(TestCase):
+    """
+    Test new item of list
+    """
+
+    def test_can_save_a_POST_request_to_an_existing_list(self) -> None:
+        """
+        тест: можно сохранить post-запрос в существующий список
+        """
+        other_list = List.objects.create()
+        correct_list = List.objects.create()
+
+        self.client.post(f'/lists/{correct_list.id}/add_item',
+                         data={'item_text': 'Anew for exiting list'}
+                         )
+        self.assertEqual(Item.objects.count(), 1)
+        new_item = Item.objects.first()
+        self.assertEqual(new_item.text, 'Anew item for an existing list')
+        self.assertEqual(new_item.list, correct_list)
+
+    def redirects_to_list_view(self) -> None:
+        """
+        тест: переадресуется в представление списка
+        """
+        other_list = List.objects.create()
+        correct_list = List.objects.create()
+
+        response = self.client.post(f'/list/{correct_list.id}/add_item',
+                                    data={'item_text': 'A new item for an \
+                                    existing list'})
+
+        self.assertRedirects(response, f'/lists/{correct_list.id}/')
+

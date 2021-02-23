@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 django = "*"
 mypy = "*"
+coverage = "*"
 
 [dev-packages]
 ipython = "*"
