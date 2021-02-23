@@ -88,11 +88,11 @@ class NewItemTest(TestCase):
         correct_list = List.objects.create()
 
         self.client.post(f'/lists/{correct_list.id}/add_item',
-                         data={'item_text': 'Anew for exiting list'}
+                         data={'item_text': 'A new item for an existing list'}
                          )
         self.assertEqual(Item.objects.count(), 1)
         new_item = Item.objects.first()
-        self.assertEqual(new_item.text, 'Anew item for an existing list')
+        self.assertEqual(new_item.text, 'A new item for an existing list')
         self.assertEqual(new_item.list, correct_list)
 
     def redirects_to_list_view(self) -> None:
