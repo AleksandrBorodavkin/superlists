@@ -1,0 +1,28 @@
+[Unit]
+Description=Gunicorn server for todo.com
+
+[Service]
+Restart=on-failure
+User=yandex-vps
+WorkingDirectory=/home/yandex-vps/sites/todo.com/source
+EnvironmentFile=/home/yandex-vps/sites/todo.com/.env
+
+ExecStart=/home/yandex-vps/sites/todo.com/virtualenv/bin/gunicorn \
+    --bind unix:/tmp/todo.com.socket \
+    superlists.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+
+
+sudo nano /etc/systemd/system/gunicorn-todo.com.service
+sudo systemctl daemon-reload
+sudo systemctl enable gunicorn-todo.com.service
+sudo systemctl start gunicorn-todo.com.service
+
+sudo systemctl status gunicorn-todo.com
+
+
+sudo journalctl -u gunicorn-todo.com
+systemd-analyze verify /etc/systemd/system/gunicorn-todo.com.service
+sudo systemctl restart gunicorn-todo.com
