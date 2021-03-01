@@ -5,12 +5,12 @@ name = "pypi"
 
 [packages]
 django = "*"
-mypy = "*"
-coverage = "*"
 
 [dev-packages]
 ipython = "*"
 selenium = "*"
+mypy = "*"
+coverage = "*"
 
 [requires]
 python_version = "3.8"
