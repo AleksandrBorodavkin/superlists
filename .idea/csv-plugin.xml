@@ -17,6 +17,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/deploy_tools/provisioning_notes.md">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/functional_tests.py">
           <value>
             <Attribute>
